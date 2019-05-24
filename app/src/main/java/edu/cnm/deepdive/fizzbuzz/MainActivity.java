@@ -20,11 +20,11 @@ public class MainActivity extends AppCompatActivity {
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
-    Log.d("Trace","Entering onCreate");
+    Log.d("Trace", "Entering onCreate");
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
     valueDisplay = findViewById(R.id.value_display);
-    Log.d("Trace","Leaving onCreate");
+    Log.d("Trace", "Leaving onCreate");
   }
 
   @Override
@@ -51,16 +51,16 @@ public class MainActivity extends AppCompatActivity {
 
   @Override
   protected void onResume() {
-    Log.d("Trace","Entering onResume");
+    Log.d("Trace", "Entering onResume");
     super.onResume();
-    Log.d("Trace","Leaving onResume");
+    Log.d("Trace", "Leaving onResume");
   }
 
   @Override
   protected void onPause() {
-    Log.d("Trace","Entering onPause");
+    Log.d("Trace", "Entering onPause");
     super.onPause();
-    Log.d("Trace","Leaving onPause");
+    Log.d("Trace", "Leaving onPause");
   }
 
   @Override
@@ -97,9 +97,9 @@ public class MainActivity extends AppCompatActivity {
 
   @Override
   public boolean onCreateOptionsMenu(Menu menu) {
-    Log.d("Trace","Entering onCreateOptionsMenu");
+    Log.d("Trace", "Entering onCreateOptionsMenu");
     getMenuInflater().inflate(R.menu.options, menu);
-    Log.d("Trace","Leaving onCreateOptionsMenu");
+    Log.d("Trace", "Leaving onCreateOptionsMenu");
     return true;
   }
 
@@ -131,6 +131,7 @@ public class MainActivity extends AppCompatActivity {
     Log.d("Trace", "Leaving onOptionsItemSelected");
     return handled;
   }
+
   private void pauseGame() {
     running = false;
     if (timer != null) {
@@ -138,20 +139,20 @@ public class MainActivity extends AppCompatActivity {
       timer = null;
     }
     //TODO Update any necessary fields, timer, and menu.
-  invalidateOptionsMenu();
+    invalidateOptionsMenu();
   }
 
   private void resumeGame() {
     running = true;
     timer = new Timer();
-    timer.schedule(new RandomValueTask(),0, 3000);//FIXME This should read preferences
+    timer.schedule(new RandomValueTask(), 0, 3000);//FIXME This should read preferences
     //TODO Update any necessary fields, timer, and menu.
-  invalidateOptionsMenu();
+    invalidateOptionsMenu();
   }
 
   private class RandomValueTask extends TimerTask {
 
-    private Random rng= new Random();
+    private Random rng = new Random();
 
     @Override
     public void run() {
